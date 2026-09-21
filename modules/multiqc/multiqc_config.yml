@@ -1,0 +1,184 @@
+title: "WGBS Quality Control Report"
+subtitle: ""
+
+sp:
+  bismark/align:
+    fn: '*_[SP]E_report.txt'
+  bismark/bam2nuc:
+    fn: '*.nucleotide_stats.txt'
+  bismark/dedup:
+    fn: '*.deduplication_report.txt'
+  bismark/m_bias:
+    fn: '*M-bias.txt'
+  bismark/meth_extract:
+    fn: '*_splitting_report.txt'
+  qualimap/bamqc/coverage:
+    fn: '*coverage_histogram.txt'
+  qualimap/bamqc/gc_dist:
+    fn: '*mapped_reads_gc-content_distribution.txt'
+  qualimap/bamqc/genome_fraction:
+    fn: '*genome_fraction_coverage.txt'
+  qualimap/bamqc/genome_results:
+    fn: '*genome_results.txt'
+  qualimap/bamqc/html:
+    contents: 'Qualimap report: BAM QC'
+    fn: '*qualimapReport.html'
+    num_lines: 10
+  qualimap/bamqc/insert_size:
+    fn: '*insert_size_histogram.txt'
+  trim_galore:
+    fn: '*_trimming_report.json'
+  fastqc/data:
+    fn: "*fastqc_data.txt"
+  fastqc/zip:
+    fn: "*_fastqc.zip"
+  biscuit/align_isize:
+    contents: BISCUITqc Insert Size Table
+    fn: '*_isize_table.txt'
+    num_lines: 3
+  biscuit/align_mapq:
+    contents: BISCUITqc Mapping Quality Table
+    fn: '*_mapq_table.txt'
+    num_lines: 3
+  biscuit/align_strand:
+    contents: BISCUITqc Strand Table
+    fn: '*_strand_table.txt'
+    num_lines: 3
+  biscuit/base_avg_retention_rate:
+    fn: '*_totalBaseConversionRate.txt'
+  biscuit/covdist_all_base:
+    fn: '*_covdist_all_base_table.txt'
+  biscuit/covdist_all_base_botgc:
+    fn: '*_covdist_all_base_botgc_table.txt'
+  biscuit/covdist_all_base_topgc:
+    fn: '*_covdist_all_base_topgc_table.txt'
+  biscuit/covdist_all_cpg:
+    fn: '*_covdist_all_cpg_table.txt'
+  biscuit/covdist_all_cpg_botgc:
+    fn: '*_covdist_all_cpg_botgc_table.txt'
+  biscuit/covdist_all_cpg_topgc:
+    fn: '*_covdist_all_cpg_topgc_table.txt'
+  biscuit/covdist_q40_base:
+    fn: '*_covdist_q40_base_table.txt'
+  biscuit/covdist_q40_base_botgc:
+    fn: '*_covdist_q40_base_botgc_table.txt'
+  biscuit/covdist_q40_base_topgc:
+    fn: '*_covdist_q40_base_topgc_table.txt'
+  biscuit/covdist_q40_cpg:
+    fn: '*_covdist_q40_cpg_table.txt'
+  biscuit/covdist_q40_cpg_botgc:
+    fn: '*_covdist_q40_cpg_botgc_table.txt'
+  biscuit/covdist_q40_cpg_topgc:
+    fn: '*_covdist_q40_cpg_topgc_table.txt'
+  biscuit/cpg_retention_readpos:
+    fn: '*_CpGRetentionByReadPos.txt'
+  biscuit/cph_retention_readpos:
+    fn: '*_CpHRetentionByReadPos.txt'
+  biscuit/dup_report:
+    contents: BISCUITqc Read Duplication Table
+    fn: '*_dup_report.txt'
+    num_lines: 3
+  biscuit/qc_cv:
+    contents: BISCUITqc Uniformity Table
+    fn: '*_cv_table.txt'
+    num_lines: 3
+  biscuit/read_avg_retention_rate:
+    fn: '*_totalReadConversionRate.txt'
+
+module_order:
+  - fastqc:
+      name: "FastQC (Pre-Trim)"
+      info: "Initial quality profile of raw, untrimmed sequencing reads."
+      path_filters:
+        - '*raw*fastqc.zip'
+  - trimgalore:
+      name: "Trimgalore"
+      info: "Adapter removal and trimming"
+      path_filters:
+        - '*_trimming_report.json'
+        - '*_trimming_report.txt'
+  - fastqc:
+      name: "FastQC (Post-Trim)"
+      info: "Quality profile of reads after adapter removal and quality trimming."
+      path_filters:
+        - '*val*fastqc.zip'
+        - '*trimmed*fastqc.zip'
+  - bismark:
+      name: "Bismark WGBS Reports"
+      info: "Alignment, deduplication, M-bias, and methylation extraction metrics."
+      path_filters: 
+        - '*_report.txt'
+        - '*.nucleotide_stats.txt'
+        - '*.deduplication_report.txt'
+        - '*M-bias.txt'
+        - '*_splitting_report.txt'
+  - qualimap:
+      name: "Qualimap BAM QC"
+      info: "Quality control metrics for aligned BAM files."
+      path_filters:
+        - '*coverage_histogram.txt'
+        - '*mapped_reads_gc-content_distribution.txt'
+        - '*genome_fraction_coverage.txt'
+        - '*genome_results.txt'
+        - '*qualimapReport.html'
+        - '*insert_size_histogram.txt'
+  - biscuit:
+      name: "BISCUIT QC Reports"
+      info: "BISCUIT bisulfite sequencing QC metrics."
+      path_filters:
+        - '*_isize_table.txt'
+        - '*_mapq_table.txt'
+        - '*_strand_table.txt'
+        - '*_totalBaseConversionRate.txt'
+        - '*_covdist_*_table.txt'
+        - '*_CpGRetentionByReadPos.txt'
+        - '*_CpHRetentionByReadPos.txt'
+        - '*_dup_report.txt'
+        - '*_cv_table.txt'
+        - '*_totalReadConversionRate.txt'
+
+fn_clean_exts:
+  - ".gz"
+  - ".fastq"
+  - ".fq"
+  - "_bismark_bt2_pe"
+  - "_bismark_bt2"
+  - "_splitting_report"
+  - ".M-bias"
+  - ".biscuit"
+  - ".qc"
+
+sample_names_clean_tags:
+  - "_trimmed"
+  - "_val_1"
+  - "_val_2"
+  - "_1"
+  - "_2"
+  - ".raw"
+  - "_deduplicated"
+  - "_bismark_bt2_pe"
+  - "_bismark_bt2_PE"
+  - "_merged"
+
+table_columns_visible:
+  Bismark:
+    percent_aligned: true
+    total_reads: true
+    dup_reads_percent: true
+    percent_c_methylated_unknown: false
+  Bismark Methylation Extractor:
+    percent_meth_cpg: true
+    percent_unmeth_cpg: true
+  FastQC (Post-Trim):
+    percent_duplicates: true
+    percent_gc: true
+    avg_sequence_length: true
+    total_sequences: true
+  FastQC (Pre-Trim):
+    percent_duplicates: true
+    percent_gc: true
+
+report_comment: ""
+show_analysis_paths: false
+show_analysis_time: true
+plots_force_interactive: true

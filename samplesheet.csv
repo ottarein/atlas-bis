@@ -1,0 +1,4 @@
+accession,customs,extract,replace,stage
+GSM9153248,experiment_title$;$run_accession,"GSM\d+:\s(\S+)"$;$"(SRR)","[:\\_.&$/\\* -]"$:$"_",,
+GSM9153249,experiment_title$;$run_accession,"GSM\d+:\s(\S+)"$;$"(SRR)","[:\\_.&$/\\* -]"$:$"_",,
+GSM7487420,experiment_title,"GSM\d+:\s(\S+)","[:\\_.&$/\\* -]"$:$"_",,

@@ -1,0 +1,46 @@
+## General pipeline params
+outdir: '/tachyon/nobackup/gpeters/pfranck/test/result'  ## output directory 
+workdir: '/tachyon/nobackup/gpeters/pfranck/test/work' 
+genome: "/tachyon/groups/gpeters/pfranck/project/dname_pipeline/ref_genome/mouse" ## genome to use
+samplesheet: "/tachyon/groups/gpeters/pfranck/project/dname_pipeline/samplesheet.csv"
+cpus: 30
+memory: 500.GB
+sub_samplesheet: null 
+
+init: false
+skip_preprocess: false ## skip all quality checks 
+bismark: true ## use bismark as BS-seq tool for alignment and others
+preprocess_only: false ## Only performs QC and Trimming 
+run_single_end: true ## force single-end processing 
+
+metadata:
+  path: null 
+
+fastqc:
+  args: null
+
+multiqc:
+  args: null
+  per_stage: false  ## create per stages report inside parent specific "studies" according to the input "stage" inside the samplesheet
+  break_parent: false ## break the parent specific report, every sample are taken together as a whole
+
+trimgalore:
+  args: "--clip_R1 9 --clip_R2 9 --three_prime_clip_R1 9 --three_prime_clip_R2 9"
+
+bismark_genome_preparation:
+  args: null
+  skip: false ## skip bismark genome preparation task
+  duplicate: true
+
+## Bismark alignment params
+bismark_alignment:
+  args: "--non_directional --local"
+
+bismark_deduplication:
+  args: null
+
+bismark_methylation_extraction:
+  args: null
+
+bismark_bam2nuc:
+  args: null
