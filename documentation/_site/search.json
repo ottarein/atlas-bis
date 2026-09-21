@@ -1,0 +1,121 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "<b><span style='color: #008CA5'>ATLAS</span><span style='color: #EBB400'>²</span></b>",
+    "section": "",
+    "text": "PLACEHOLDER NOT REAL IMAGE\n\n\n\nAnalysis Loolkit for Large Studies of Bisulfite-sequencing : ATLAS²\n\n\nATLAS² is a Nextflow-based pipeline for reproducible, scalable, and comprehensive analysis of bisulfite sequencing data. Designed for both newly generated and publicly available datasets, it performs extensive quality control, preprocessing, alignment, methylation calling, and exploratory analyses. With detailed reports and standardized outputs, ATLAS² delivers analysis-ready results that can be directly used for visualization, statistical modeling, and downstream epigenomic studies, from small experiments to large scale studies\n\n\nGet Started"
+  },
+  {
+    "objectID": "docs/references/index.html",
+    "href": "docs/references/index.html",
+    "title": "References",
+    "section": "",
+    "text": "outdir (default='./result' : string): A path to a directory where the pipeline results will be stored, i.e copied into from the work directory of each process using the directives of the configuration files for exact localization  workdir (default=null : string): A path to a directory where the pipeline will store every process instances, files as well as every conda environment, more details at Nextflow’s documentation  genome (default=null : string): A path to a folder containing a fasta file being the genome for alignment  samplesheet (default=null : string): A .csv file with studies accessions numbers and personalized input for metadata manipulation, for more details please refer to the test run at “First Launch of ATLAS²”  cpus (default=null : integer): An amount of CPUS available and allowed to the pipeline to use. memory: The amount of memory available and usable for the pipeline. The memory should be written in the form of X.MB,X.GB, X.TB, etc..  sub_samplesheet (default=null : string): A path to a file where each line should correspond to an accession number available from the metadata processed by the pipeline. Typically, this is used to filter samples out from larges studies  init (default=true : boolean) : A boolean that condition the execution of step from retrieving the metadata onwards. By default, init=true for the first run as we expect to first retrieve the metadata of our studies and explore the metadata to then plan out the analysis plan for each studies. It can be set to false afterwards or from the beginning in the case of self-curated data. skip_preprocess (default=false : boolean) :  bismark (default=true : boolean):  preprocess_only (default=false : boolean):  run_single_end (default=false : boolean):"
+  },
+  {
+    "objectID": "docs/references/index.html#general-parameters",
+    "href": "docs/references/index.html#general-parameters",
+    "title": "References",
+    "section": "",
+    "text": "outdir (default='./result' : string): A path to a directory where the pipeline results will be stored, i.e copied into from the work directory of each process using the directives of the configuration files for exact localization  workdir (default=null : string): A path to a directory where the pipeline will store every process instances, files as well as every conda environment, more details at Nextflow’s documentation  genome (default=null : string): A path to a folder containing a fasta file being the genome for alignment  samplesheet (default=null : string): A .csv file with studies accessions numbers and personalized input for metadata manipulation, for more details please refer to the test run at “First Launch of ATLAS²”  cpus (default=null : integer): An amount of CPUS available and allowed to the pipeline to use. memory: The amount of memory available and usable for the pipeline. The memory should be written in the form of X.MB,X.GB, X.TB, etc..  sub_samplesheet (default=null : string): A path to a file where each line should correspond to an accession number available from the metadata processed by the pipeline. Typically, this is used to filter samples out from larges studies  init (default=true : boolean) : A boolean that condition the execution of step from retrieving the metadata onwards. By default, init=true for the first run as we expect to first retrieve the metadata of our studies and explore the metadata to then plan out the analysis plan for each studies. It can be set to false afterwards or from the beginning in the case of self-curated data. skip_preprocess (default=false : boolean) :  bismark (default=true : boolean):  preprocess_only (default=false : boolean):  run_single_end (default=false : boolean):"
+  },
+  {
+    "objectID": "docs/references/index.html#process-paramaters",
+    "href": "docs/references/index.html#process-paramaters",
+    "title": "References",
+    "section": "Process paramaters",
+    "text": "Process paramaters\n\nmetadata\npath (default='' : string): \n\n\nfastqc\nargs: \n\n\nmultiqc\nargs:  per_stage:  break_parent: \n\n\ntrimgalore\nargs: \n\n\nbismark_genome_preparation\nargs:  skip:  duplicate: \n\n\nbismark_alignment\nargs: \n\n\nbismark_deduplication\nargs: \n\n\nbismark_methylation_extraction\nargs: \n\n\nbismark_bam2nuc\nargs: \n\n← Usage\nAbout →"
+  },
+  {
+    "objectID": "docs/get_started/index.html",
+    "href": "docs/get_started/index.html",
+    "title": "How to launch the pipeline",
+    "section": "",
+    "text": "First, we will need to install conda (if not available) with the following command in a linux terminal\nsudo apt install conda\nThen using conda, we will create a new conda environment with Nextflow v25.10.4 (this version is the last one using the old parser in which the ATLAS² was coded)\ncd path/to/where/you/want/the/environment/to/be ## optional but it's better to know where your environment will be created\nconda create -p ./env -c conda-forge -c bioconda --override-channels nextflow=25.10.4"
+  },
+  {
+    "objectID": "docs/get_started/index.html#set-up-the-environment",
+    "href": "docs/get_started/index.html#set-up-the-environment",
+    "title": "How to launch the pipeline",
+    "section": "",
+    "text": "First, we will need to install conda (if not available) with the following command in a linux terminal\nsudo apt install conda\nThen using conda, we will create a new conda environment with Nextflow v25.10.4 (this version is the last one using the old parser in which the ATLAS² was coded)\ncd path/to/where/you/want/the/environment/to/be ## optional but it's better to know where your environment will be created\nconda create -p ./env -c conda-forge -c bioconda --override-channels nextflow=25.10.4"
+  },
+  {
+    "objectID": "docs/get_started/index.html#launch-the-pipeline",
+    "href": "docs/get_started/index.html#launch-the-pipeline",
+    "title": "How to launch the pipeline",
+    "section": "Launch the pipeline",
+    "text": "Launch the pipeline\n\nNow with the conda environment created, we will need to activate this environment\nconda activate ./env/ #assuming you are in the correct directory, i.e the \"path/to/where/you/want/the/environment/to/be\" from before\nAfter activating the conda environment, we can check if the right version of Nextflow is installed\nnextflow -version\nThe following output should be printed\nN E X T F L O W\n      version 25.10.4 build 11173\n      created XX-XX-XXXX XX:XX UTC (XX:XX CEST)\n      cite doi:10.1038/nbt.3820\n      http://nextflow.io\nNow, you can theoretically launch any Nextflow pipeline using this conda environment, for example ATLAS², we can launch the pipeline with the following command\nnextflow run main.nf \nBut as you can see if you run the command above, we actually need to have the pipeline stored locally to be able to use main.nf, which contains the pipeline’s code.\n Future update might allow to skip this step entirely by directly launching the pipeline from a repository"
+  },
+  {
+    "objectID": "docs/get_started/index.html#retrieve-the-pipeline-online",
+    "href": "docs/get_started/index.html#retrieve-the-pipeline-online",
+    "title": "How to launch the pipeline",
+    "section": "Retrieve the pipeline online",
+    "text": "Retrieve the pipeline online\n\nThe pipeline can be found in this following public Github repository. You can clone this repository to have everything locally\n## change your directory to where you want the pipeline to be stored\ngit clone https://github.com/ottarein/atlas-bis.git\nNow, place yourself inside the pipeline directory you just cloned. From the root of that directory, running ls should show the following\nmodules nextflow.config params.yml ref_genome samplesheet.csv subworkflow\ntest-files, modules, ref_genome, subworkflow are folders while nextflow.config, params.yml, samplesheet.csv should be files.\n\n\n← Introduction\nFirst launch →"
+  },
+  {
+    "objectID": "docs/about/index.html",
+    "href": "docs/about/index.html",
+    "title": "About ATLAS²",
+    "section": "",
+    "text": "This pipeline was developed during Franck Pan’s internship as his main project during the summer of 2026 at the Friedrich Miescher Institute for Biomedical Research in the Peter’s Lab, and it is being maintained by Franck Pan."
+  },
+  {
+    "objectID": "docs/about/index.html#background-and-maintainer",
+    "href": "docs/about/index.html#background-and-maintainer",
+    "title": "About ATLAS²",
+    "section": "",
+    "text": "This pipeline was developed during Franck Pan’s internship as his main project during the summer of 2026 at the Friedrich Miescher Institute for Biomedical Research in the Peter’s Lab, and it is being maintained by Franck Pan."
+  },
+  {
+    "objectID": "docs/about/index.html#requirements",
+    "href": "docs/about/index.html#requirements",
+    "title": "About ATLAS²",
+    "section": "Requirements",
+    "text": "Requirements\n\nNextflow v25.10.4, Conda (latest)\nThere is no minimum system requirement, but depending on your dataset the pipeline can be very system-hungry - the more CPU/RAM the better , and enough disk space is essential."
+  },
+  {
+    "objectID": "docs/about/index.html#citation",
+    "href": "docs/about/index.html#citation",
+    "title": "About ATLAS²",
+    "section": "Citation",
+    "text": "Citation\nPLACEHOLDER"
+  },
+  {
+    "objectID": "docs/about/index.html#license",
+    "href": "docs/about/index.html#license",
+    "title": "About ATLAS²",
+    "section": "License",
+    "text": "License\nPLACEHOLDER"
+  },
+  {
+    "objectID": "docs/about/index.html#authors-contact",
+    "href": "docs/about/index.html#authors-contact",
+    "title": "About ATLAS²",
+    "section": "Authors / Contact",
+    "text": "Authors / Contact\nFranck Pan - author, maintainer Contact: E-Mail\n\n← References"
+  },
+  {
+    "objectID": "docs/first_launch/index.html",
+    "href": "docs/first_launch/index.html",
+    "title": "Your First Launch of ATLAS²",
+    "section": "",
+    "text": "PLACEHOLDER TESTING RUN\n\n← Get started\nUsage →"
+  },
+  {
+    "objectID": "docs/introduction/index.html",
+    "href": "docs/introduction/index.html",
+    "title": "Welcome to ATLAS²",
+    "section": "",
+    "text": "ATLAS² (pronounced atlas-bis) is a powerful and reproducible Nextflow-based pipeline designed for comprehensive analysis of bisulfite sequencing data. Built to support both newly generated datasets and publicly available sequencing data, ATLAS² streamlines the entire processing workflow from raw reads to analysis-ready results.\nWhether analyzing a single experiment or large-scale cohort studies involving hundreds of samples, ATLAS² provides a scalable and robust framework that ensures consistency, reproducibility, and ease of deployment across computing environments.\nThe pipeline performs extensive quality assessment at every stage of the analysis, generating detailed reports that allow users to evaluate sequencing quality, alignment performance, bisulfite conversion efficiency, coverage metrics, and methylation calling accuracy. Beyond quality control, ATLAS² includes a suite of preliminary analyses that help users rapidly explore their datasets and identify potential technical or biological patterns before conducting in-depth investigations.\nAll outputs are organized into standardized, analysis-ready formats, enabling seamless integration with downstream visualization tools, statistical frameworks, and custom bioinformatics workflows. By combining automation, comprehensive reporting, and scalability, ATLAS² empowers researchers to efficiently process and explore bisulfite sequencing datasets while maintaining full reproducibility and transparency.\nFrom raw sequencing data to publication-ready analyses, ATLAS² provides a complete foundation for large-scale epigenomic studies.\n\n\nGet Started"
+  },
+  {
+    "objectID": "docs/usage/index.html",
+    "href": "docs/usage/index.html",
+    "title": "Usage",
+    "section": "",
+    "text": "PLACEHOLDER STEP BY STEP WORKFLOW DETAILS\n\n← First launch\nReferences →"
+  }
+]

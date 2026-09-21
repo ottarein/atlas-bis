@@ -1,0 +1,81 @@
+---
+title: "<span style='color:#6E3778;'>How to launch the pipeline</span>"
+---
+
+## Set up the environment
+
+::: {style="text-align: justify; font-size: 19px;"}
+First, we will need to install conda (if not available) with the following command in a <u>linux</u> terminal
+
+```bash
+sudo apt install conda
+```
+
+Then using conda, we will create a new conda environment with `Nextflow v25.10.4` (this version is the last one using the old parser in which the `ATLAS²` was coded)
+
+```bash
+cd path/to/where/you/want/the/environment/to/be ## optional but it's better to know where your environment will be created
+conda create -p ./env -c conda-forge -c bioconda --override-channels nextflow=25.10.4 
+```
+:::
+## Launch the pipeline
+
+::: {style="text-align: justify; font-size: 19px;"}
+Now with the conda environment created, we will need to activate this environment 
+
+```bash
+conda activate ./env/ #assuming you are in the correct directory, i.e the "path/to/where/you/want/the/environment/to/be" from before
+```
+After activating the conda environment, we can check if the right version of Nextflow is installed
+
+```bash
+nextflow -version
+```
+The following output should be printed
+
+```bash
+N E X T F L O W
+      version 25.10.4 build 11173
+      created XX-XX-XXXX XX:XX UTC (XX:XX CEST)
+      cite doi:10.1038/nbt.3820
+      http://nextflow.io
+```
+Now, you can theoretically launch any Nextflow pipeline using this conda environment, for example `ATLAS²`, we can launch the pipeline with the following command 
+
+```bash
+nextflow run main.nf 
+```
+
+But as you can see if you run the command above, we actually need to have the pipeline stored locally to be able to use `main.nf`, which contains the pipeline's code. 
+
+<i> Future update might allow to skip this step entirely by directly launching the pipeline from a repository </i>
+:::
+
+## Retrieve the pipeline online
+
+::: {style="text-align: justify; font-size: 19px;"}
+The pipeline can be found in this following public [Github repository](https://github.com/ottarein/atlas-bis). You can clone this repository to have everything locally 
+
+```bash
+## change your directory to where you want the pipeline to be stored
+git clone https://github.com/ottarein/atlas-bis.git
+```
+
+Now, place yourself inside the pipeline directory you just cloned. From the root of that directory, running `ls` should show the following
+
+```bash
+modules nextflow.config params.yml ref_genome samplesheet.csv subworkflow
+```
+
+`test-files`, `modules`, `ref_genome`, `subworkflow` are folders while `nextflow.config`, `params.yml`, `samplesheet.csv` should be files.
+
+:::
+
+::: {.d-flex .justify-content-between .mt-5}
+[← Introduction](../introduction/index.qmd){.fw-bold style="color: #6E3778; font-size: 20px;"}
+
+[First launch →](../first_launch/index.qmd){.fw-bold style="color: #6E3778; font-size: 20px;"}
+:::
+
+
+

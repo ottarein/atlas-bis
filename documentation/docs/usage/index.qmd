@@ -1,0 +1,14 @@
+---
+title: "<span style='color:#6E3778;'>Usage</span>"
+---
+
+
+`PLACEHOLDER STEP BY STEP WORKFLOW DETAILS`
+
+
+::: {.d-flex .justify-content-between .mt-5}
+[← First launch](../first_launch/index.qmd){.fw-bold style="color: #6E3778; font-size: 20px;"}
+
+[References →](../references/index.qmd){.fw-bold style="color: #6E3778; font-size: 20px;"}
+:::
+

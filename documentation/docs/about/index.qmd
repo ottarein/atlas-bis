@@ -1,0 +1,29 @@
+---
+title: "<span style='color:#6E3778;'>About </span><span style='color:#008CA5;'>ATLAS</span><span style='color:#EBB400;'>²</span>"
+---
+
+## Background and Maintainer
+
+This pipeline was developed during Franck Pan's internship as his main project during the summer of 2026 at the [Friedrich Miescher Institute for Biomedical Research](https://www.fmi.ch/){target="_blank"} in the [Peter's Lab](https://www.fmi.ch/research-groups/groupleader.html?group=41), and it is being maintained by **Franck Pan**.
+
+## Requirements
+
+- Nextflow v25.10.4, Conda (latest)
+- There is no minimum system requirement, but depending on your dataset the pipeline can be very system-hungry - <u><b>the more CPU/RAM the better </b></u>, and <u><b>enough disk space</b></u> is essential.
+
+## Citation
+
+`PLACEHOLDER`
+
+## License
+
+`PLACEHOLDER`
+
+## Authors / Contact
+
+**Franck Pan** - author, maintainer
+Contact: [E-Mail](mailto:panfranck2004@gmail.com)
+    
+::: {.d-flex .justify-content-between .mt-5}
+[← References](../references/index.qmd){.fw-bold style="color: #6E3778; font-size: 20px;"}
+:::

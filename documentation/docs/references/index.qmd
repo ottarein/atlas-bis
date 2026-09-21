@@ -1,0 +1,66 @@
+---
+title: "<span style='color:#6E3778;'>References</span>"
+---
+
+## General parameters
+::: {style="text-align: justify; font-size: 19px;"}
+`outdir (default='./result' : string)`: A path to a directory where the pipeline results will be stored, i.e copied into from the work directory of each process using the directives of the configuration files for exact localization <br><br>
+`workdir (default=null : string)`:  A path to a directory where the pipeline will store every process instances, files as well as every conda environment, more details at [Nextflow's documentation](https://docs.seqera.io/nextflow/cache-and-resume#work-directory) <br><br>
+`genome (default=null : string)`:  A path to a folder containing a fasta file being the genome for alignment <br><br>
+`samplesheet (default=null : string)`:  A `.csv` file with studies accessions numbers and personalized input for metadata manipulation, for more details please refer to the test run at "First Launch of ATLAS²" <br><br>
+`cpus (default=null : integer)`: An amount of CPUS available and allowed to the pipeline to use.<br>
+`memory`: The amount of memory available and usable for the pipeline. The memory should be written in the form of `X.MB`,`X.GB`, `X.TB`, etc.. <br><br>
+`sub_samplesheet (default=null : string)`: A path to a file where each line should correspond to an accession number available from the metadata processed by the pipeline. Typically, this is used to filter samples out from larges studies <br><br>
+`init (default=true : boolean)` : A boolean that condition the execution of step from retrieving the metadata onwards. By default, `init=true` for the first run as we expect to first retrieve the metadata of our studies and explore the metadata to then plan out the analysis plan for each studies. It can be set to `false` afterwards or from the beginning in the case of self-curated data.<br><br>
+`skip_preprocess (default=false : boolean)` : <br><br>
+`bismark (default=true : boolean)`: <br><br>
+`preprocess_only (default=false : boolean)`: <br><br>
+`run_single_end (default=false : boolean)`: <br><br>
+:::
+## Process paramaters
+
+### metadata
+
+`path (default='' : string)`: <br><br>
+
+### fastqc
+
+`args`: <br><br>
+
+### multiqc
+
+`args`: <br><br>
+`per_stage`: <br><br>
+`break_parent`: <br><br>
+
+### trimgalore
+
+`args`: <br><br>
+
+### bismark_genome_preparation
+
+`args`: <br><br>
+`skip`: <br><br>
+`duplicate`: <br><br>
+
+### bismark_alignment
+
+`args`: <br><br>
+
+### bismark_deduplication
+
+`args`: <br><br>
+
+### bismark_methylation_extraction
+
+`args`: <br><br>
+
+### bismark_bam2nuc
+
+`args`: <br><br>
+
+::: {.d-flex .justify-content-between .mt-5}
+[← Usage](../usage/index.qmd){.fw-bold style="color: #6E3778; font-size: 20px;"}
+
+[About →](../about/index.qmd){.fw-bold style="color: #6E3778; font-size: 20px;"}
+:::

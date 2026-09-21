@@ -1,0 +1,38 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "<b><span style='color: #008CA5'>ATLAS</span><span style='color: #EBB400'>²</span></b>"
+  search:
+    show-item-context: true
+    type: overlay
+  navbar:
+    background: light
+    left:
+      - text: "Introduction"
+        href: docs/introduction/index.qmd
+      - text: "Get started"
+        href: docs/get_started/index.qmd
+      - text: "First launch"
+        href: docs/first_launch/index.qmd
+      - text: "Usage"
+        href: docs/usage/index.qmd
+      - text: "References"
+        href: docs/references/index.qmd
+      - text: "About"
+        href: docs/about/index.qmd
+
+
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+    toc-location: left
+
+editor: visual
+

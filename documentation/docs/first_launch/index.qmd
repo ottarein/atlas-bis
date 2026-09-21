@@ -1,0 +1,11 @@
+---
+title: "<span style='color:#6E3778;'>Your First Launch of </span><span style='color:#008CA5;'>ATLAS</span><span style='color:#EBB400;'>²</span>"
+---
+
+`PLACEHOLDER TESTING RUN`
+
+::: {.d-flex .justify-content-between .mt-5}
+[← Get started](../get_started/index.qmd){.fw-bold style="color: #6E3778; font-size: 20px;"}
+
+[Usage →](../usage/index.qmd){.fw-bold style="color: #6E3778; font-size: 20px;"}
+:::

@@ -1,0 +1,19 @@
+---
+title: "<span style='color:#6E3778;'>Welcome to </span><span style='color:#008CA5;'>ATLAS</span><span style='color:#EBB400;'>²</span>"
+---
+
+::: {style="text-align: justify; font-size: 18px;"}
+ATLAS² (pronounced atlas-bis) is a powerful and reproducible Nextflow-based pipeline designed for comprehensive analysis of bisulfite sequencing data. Built to support both newly generated datasets and publicly available sequencing data, ATLAS² streamlines the entire processing workflow from raw reads to analysis-ready results.
+
+Whether analyzing a single experiment or large-scale cohort studies involving hundreds of samples, ATLAS² provides a scalable and robust framework that ensures consistency, reproducibility, and ease of deployment across computing environments.
+
+The pipeline performs extensive quality assessment at every stage of the analysis, generating detailed reports that allow users to evaluate sequencing quality, alignment performance, bisulfite conversion efficiency, coverage metrics, and methylation calling accuracy. Beyond quality control, ATLAS² includes a suite of preliminary analyses that help users rapidly explore their datasets and identify potential technical or biological patterns before conducting in-depth investigations.
+
+All outputs are organized into standardized, analysis-ready formats, enabling seamless integration with downstream visualization tools, statistical frameworks, and custom bioinformatics workflows. By combining automation, comprehensive reporting, and scalability, ATLAS² empowers researchers to efficiently process and explore bisulfite sequencing datasets while maintaining full reproducibility and transparency.
+
+From raw sequencing data to publication-ready analyses, ATLAS² provides a complete foundation for large-scale epigenomic studies.
+:::
+
+::: {.text-center .mt-5}
+<a href="../get_started/index.qmd" class="get-started-btn">Get Started</a>
+:::
