@@ -166,7 +166,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#parameters-file" id="toc-parameters-file" class="nav-link active" data-scroll-target="#parameters-file">Parameters File</a></li>
+  <li><a href="#parameters-file" id="toc-parameters-file" class="nav-link active" data-scroll-target="#parameters-file">Parameters file</a></li>
+  <li><a href="#samplesheet-file" id="toc-samplesheet-file" class="nav-link" data-scroll-target="#samplesheet-file">Samplesheet file</a></li>
   </ul>
 </nav>
 </nav>
@@ -196,9 +197,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Now, let’s do our first launch of ATLAS²</p>
+<p>Now, let’s do our first launch of ATLAS² with sample from online repository</p>
 <section id="parameters-file" class="level2">
-<h2 class="anchored" data-anchor-id="parameters-file">Parameters File</h2>
+<h2 class="anchored" data-anchor-id="parameters-file">Parameters file</h2>
 <p>First, you will need a parameter file <code>params.yml</code> to make your life easier. A parameter file is a <code>.yml</code> file containing any parameters with their value that you would want to give to the pipeline. It substitute to simply adding them one by one in the command line after Nextflow run command</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nextflow</span> run main.nf <span class="at">-params-file</span> params.yml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>instead of</p>
@@ -213,6 +214,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">init</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">preprocess_only</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="samplesheet-file" class="level2">
+<h2 class="anchored" data-anchor-id="samplesheet-file">Samplesheet file</h2>
+<p>After creating your parameters file, you will need a samplesheet to tell the pipeline what are your samples’ accession number. A first samplesheet that we will be using is</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">accession,customs,extract,replace,stage</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">GSM9153248,,,,,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">GSM9153249,,,,,</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Those two WGBS sample from the paper <a href="https://pubmed.ncbi.nlm.nih.gov/40902605/">Preventing CpG hypermethylation in oocytes safeguards mouse development</a>.</p>
+<p>A samplesheet is your way of telling the pipeline which samples you want to retrieve and how to identify them. A samplesheet has 5 columns : accession, customs, extract, replace and stage. For now we are only interested in the accession column. The samplesheet is only filled out with the accession number and you will run the pipeline with the argument <code>init: true</code> (by default) in your <code>params.yml</code> to do an <code>Initialization</code> step.</p>
 <div class="d-flex justify-content-between mt-5">
 <p><a href="../../docs/get_started/index.html" class="fw-bold" style="color: #6E3778; font-size: 20px;">← Get started</a></p>
 <p><a href="../../docs/usage/index.html" class="fw-bold" style="color: #6E3778; font-size: 20px;">Usage →</a></p>

@@ -2,9 +2,9 @@
 title: "<span style='color:#6E3778;'>Your First Launch of </span><span style='color:#008CA5;'>ATLAS</span><span style='color:#EBB400;'>²</span>"
 ---
 
-Now, let's do our first launch of ATLAS²
+Now, let's do our first launch of ATLAS² with sample from online repository
 
-## Parameters File
+## Parameters file
 
 First, you will need a parameter file `params.yml` to make your life easier. A parameter file is a `.yml` file containing any parameters with their value that you would want to give to the pipeline. It substitute to simply adding them one by one in the command line after Nextflow run command 
 ```bash
@@ -29,6 +29,25 @@ memory: 16.GB
 init: true
 preprocess_only: true
 ```
+
+## Samplesheet file
+
+After creating your parameters file, you will need a samplesheet to tell the pipeline what are your samples' accession number. A first samplesheet that we will be using is 
+
+```bash
+accession,customs,extract,replace,stage
+GSM9153248,,,,,
+GSM9153249,,,,,
+```
+
+Those two WGBS sample from the paper [Preventing CpG hypermethylation in oocytes safeguards mouse development](https://pubmed.ncbi.nlm.nih.gov/40902605/).
+
+A samplesheet is your way of telling the pipeline which samples you want to retrieve and how to identify them. A samplesheet has 5 columns : accession, customs, extract, replace and stage. For now we are only interested in the accession column. The samplesheet is only filled out with the accession number and you will run the pipeline with the argument `init: true` (by default) in your `params.yml` to do an `Initialization` step. 
+
+
+
+
+
 
 ::: {.d-flex .justify-content-between .mt-5}
 [← Get started](../get_started/index.qmd){.fw-bold style="color: #6E3778; font-size: 20px;"}

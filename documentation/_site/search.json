@@ -102,7 +102,21 @@
     "href": "docs/first_launch/index.html",
     "title": "Your First Launch of ATLAS²",
     "section": "",
-    "text": "Now, let’s do our first launch of ATLAS²"
+    "text": "Now, let’s do our first launch of ATLAS² with sample from online repository"
+  },
+  {
+    "objectID": "docs/first_launch/index.html#parameters-file",
+    "href": "docs/first_launch/index.html#parameters-file",
+    "title": "Your First Launch of ATLAS²",
+    "section": "Parameters file",
+    "text": "Parameters file\nFirst, you will need a parameter file params.yml to make your life easier. A parameter file is a .yml file containing any parameters with their value that you would want to give to the pipeline. It substitute to simply adding them one by one in the command line after Nextflow run command\nnextflow run main.nf -params-file params.yml\ninstead of\nnextflow run main.nf --params1 value1 --params2 value2 ..\nHere is an example of parameters file to use for now\noutdir: './result'  \nworkdir: './work' \nsamplesheet: \"./samplesheet.csv\"\nsub_samplesheet: null\ncpus: 4\nmemory: 16.GB\n\ninit: true\npreprocess_only: true"
+  },
+  {
+    "objectID": "docs/first_launch/index.html#samplesheet-file",
+    "href": "docs/first_launch/index.html#samplesheet-file",
+    "title": "Your First Launch of ATLAS²",
+    "section": "Samplesheet file",
+    "text": "Samplesheet file\nAfter creating your parameters file, you will need a samplesheet to tell the pipeline what are your samples’ accession number. A first samplesheet that we will be using is\naccession,customs,extract,replace,stage\nGSM9153248,,,,,\nGSM9153249,,,,,\nThose two WGBS sample from the paper Preventing CpG hypermethylation in oocytes safeguards mouse development.\nA samplesheet is your way of telling the pipeline which samples you want to retrieve and how to identify them. A samplesheet has 5 columns : accession, customs, extract, replace and stage. For now we are only interested in the accession column. The samplesheet is only filled out with the accession number and you will run the pipeline with the argument init: true (by default) in your params.yml to do an Initialization step.\n\n← Get started\nUsage →"
   },
   {
     "objectID": "docs/introduction/index.html",
@@ -117,12 +131,5 @@
     "title": "Usage",
     "section": "",
     "text": "PLACEHOLDER STEP BY STEP WORKFLOW DETAILS\n\n← First launch\nReferences →"
-  },
-  {
-    "objectID": "docs/first_launch/index.html#parameters-file",
-    "href": "docs/first_launch/index.html#parameters-file",
-    "title": "Your First Launch of ATLAS²",
-    "section": "Parameters File",
-    "text": "Parameters File\nFirst, you will need a parameter file params.yml to make your life easier. A parameter file is a .yml file containing any parameters with their value that you would want to give to the pipeline. It substitute to simply adding them one by one in the command line after Nextflow run command\nnextflow run main.nf -params-file params.yml\ninstead of\nnextflow run main.nf --params1 value1 --params2 value2 ..\nHere is an example of parameters file to use for now\noutdir: './result'  \nworkdir: './work' \nsamplesheet: \"./samplesheet.csv\"\nsub_samplesheet: null\ncpus: 4\nmemory: 16.GB\n\ninit: true\npreprocess_only: true\n\n← Get started\nUsage →"
   }
 ]
