@@ -176,46 +176,46 @@ ul.task-list li input[type="checkbox"] {
 <section id="general-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="general-parameters">General parameters</h2>
 <div style="text-align: justify; font-size: 19px;">
-<p><code>outdir (default='./result' : string)</code>: A path to a directory where the pipeline results will be stored, i.e copied into from the work directory of each process using the directives of the configuration files for exact localization <br><br> <code>workdir (default=null : string)</code>: A path to a directory where the pipeline will store every process instances, files as well as every conda environment, more details at <a href="https://docs.seqera.io/nextflow/cache-and-resume#work-directory">Nextflow’s documentation</a> <br><br> <code>genome (default=null : string)</code>: A path to a folder containing a fasta file being the genome for alignment <br><br> <code>samplesheet (default=null : string)</code>: A <code>.csv</code> file with studies accessions numbers and personalized input for metadata manipulation, for more details please refer to the test run at “First Launch of ATLAS²” <br><br> <code>cpus (default=null : integer)</code>: An amount of CPUS available and allowed to the pipeline to use.<br> <code>memory</code>: The amount of memory available and usable for the pipeline. The memory should be written in the form of <code>X.MB</code>,<code>X.GB</code>, <code>X.TB</code>, etc.. <br><br> <code>sub_samplesheet (default=null : string)</code>: A path to a file where each line should correspond to an accession number available from the metadata processed by the pipeline. Typically, this is used to filter samples out from larges studies <br><br> <code>init (default=true : boolean)</code> : A boolean that condition the execution of step from retrieving the metadata onwards. By default, <code>init=true</code> for the first run as we expect to first retrieve the metadata of our studies and explore the metadata to then plan out the analysis plan for each studies. It can be set to <code>false</code> afterwards or from the beginning in the case of self-curated data.<br><br> <code>skip_preprocess (default=false : boolean)</code> : <br><br> <code>bismark (default=true : boolean)</code>: <br><br> <code>preprocess_only (default=false : boolean)</code>: <br><br> <code>run_single_end (default=false : boolean)</code>: <br><br></p>
+<p><code>outdir (default='./result' : string)</code>: A path to a directory where the pipeline results will be stored, i.e copied into from the work directory of each process using the directives of the configuration files for exact localization <br><br> <code>workdir (default=null : string)</code>: A path to a directory where the pipeline will store every process instances, files as well as every conda environment, more details at <a href="https://docs.seqera.io/nextflow/cache-and-resume#work-directory">Nextflow’s documentation</a> <br><br> <code>genome (default=null : string)</code>: A path to a folder containing a fasta file being the genome for alignment <br><br> <code>samplesheet (default=null : string)</code>: A <code>.csv</code> file with studies accessions numbers and personalized input for metadata manipulation, for more details please refer to the test run at “First Launch of ATLAS²” <br><br> <code>cpus (default=null : integer)</code>: An amount of CPUS available and allowed to the pipeline to use.<br> <code>memory</code>: The amount of memory available and usable for the pipeline. The memory should be written in the form of <code>X.MB</code>,<code>X.GB</code>, <code>X.TB</code>, etc.. <br><br> <code>sub_samplesheet (default=null : string)</code>: A path to a file where each line should correspond to an accession number available from the metadata processed by the pipeline. Typically, this is used to filter samples out from larges studies <br><br> <code>init (default=true : boolean)</code> : A boolean that condition the execution of step from retrieving the metadata onwards. By default, <code>init=true</code> for the first run as we expect to first retrieve the metadata of our studies and explore the metadata to then plan out the analysis plan for each studies. It can be set to <code>false</code> afterwards or from the beginning in the case of self-curated data. <br><br> <code>skip_preprocess (default=false : boolean)</code> : A boolean allowing to skip all preprocessing step to start with alignment as the first step. <code>PLACEHOLDER</code><br><br> <!-- add a new files that contains every fastq to align and process --> <code>bismark (default=true : boolean)</code>: Use Bismark Suite as the tools for alignment and post alignment processing, it is on by default.<br><br> <code>preprocess_only (default=false : boolean)</code>: Parameters to proceed apply only preprocessing step to the samples.<br><br> <code>run_single_end (default=false : boolean)</code>: Parameters to consider paired-end samples as if they were single ended and process them as such. For example, analysing sc-WGBS study would require this parameters.<br><br></p>
 </div>
 </section>
 <section id="process-paramaters" class="level2">
 <h2 class="anchored" data-anchor-id="process-paramaters">Process paramaters</h2>
 <section id="metadata" class="level3">
 <h3 class="anchored" data-anchor-id="metadata">metadata</h3>
-<p><code>path (default='' : string)</code>: <br><br></p>
+<p><code>path (default=null : string)</code>: Path to a metadata file (usually <code>.csv</code>). Typically after <code>Initialization</code>, i.e retrieving the metadata, if the metadata need some processing then it can be done externally and use the newly processed metadata as input using this paramater. <br><br></p>
 </section>
 <section id="fastqc" class="level3">
 <h3 class="anchored" data-anchor-id="fastqc">fastqc</h3>
-<p><code>args</code>: <br><br></p>
+<p><code>args (default=null : string)</code>: A string of arguments in the form of <code>"--params1 --params2 ..."</code> to give to this specific process as additional argument to the tool being used.<br><br></p>
 </section>
 <section id="multiqc" class="level3">
 <h3 class="anchored" data-anchor-id="multiqc">multiqc</h3>
-<p><code>args</code>: <br><br> <code>per_stage</code>: <br><br> <code>break_parent</code>: <br><br></p>
+<p><code>args (default=null : string)</code>: A string of arguments in the form of <code>"--params1 --params2 ..."</code> to give to this specific process as additional argument to the tool being used.<br><br> <code>per_stage (default=null : string)</code>: Allow to create per condition report using multiqc by referencing a column from the metadata in the samplesheet.<br><br> <code>break_parent (default=null : string)</code>: Allow to give up seperating the input accession from the samplesheet into different report. For example, in case of two accession number as input to sample sheet both being GSE (large study) then instead of creating one report per GSE it will instad consider every sample as one unique study.<br><br></p>
 </section>
 <section id="trimgalore" class="level3">
 <h3 class="anchored" data-anchor-id="trimgalore">trimgalore</h3>
-<p><code>args</code>: <br><br></p>
+<p><code>args (default=null : string)</code>: A string of arguments in the form of <code>"--params1 --params2 ..."</code> to give to this specific process as additional argument to the tool being used.<br><br></p>
 </section>
 <section id="bismark_genome_preparation" class="level3">
 <h3 class="anchored" data-anchor-id="bismark_genome_preparation">bismark_genome_preparation</h3>
-<p><code>args</code>: <br><br> <code>skip</code>: <br><br> <code>duplicate</code>: <br><br></p>
+<p><code>args (default=null : string)</code>: A string of arguments in the form of <code>"--params1 --params2 ..."</code> to give to this specific process as additional argument to the tool being used.<br><br> <code>skip (default=null : string)</code>: Allow to skip the genome preparation step and assume that it has already been done before.<br><br> <code>duplicate (default=null : string)</code>: Duplicate the genome folder with the alternative version to the output folder, i.e <code>outdir</code>.<br><br></p>
 </section>
 <section id="bismark_alignment" class="level3">
 <h3 class="anchored" data-anchor-id="bismark_alignment">bismark_alignment</h3>
-<p><code>args</code>: <br><br></p>
+<p><code>args (default=null : string)</code>: A string of arguments in the form of <code>"--params1 --params2 ..."</code> to give to this specific process as additional argument to the tool being used.<br><br></p>
 </section>
 <section id="bismark_deduplication" class="level3">
 <h3 class="anchored" data-anchor-id="bismark_deduplication">bismark_deduplication</h3>
-<p><code>args</code>: <br><br></p>
+<p><code>args (default=null : string)</code>: A string of arguments in the form of <code>"--params1 --params2 ..."</code> to give to this specific process as additional argument to the tool being used.<br><br></p>
 </section>
 <section id="bismark_methylation_extraction" class="level3">
 <h3 class="anchored" data-anchor-id="bismark_methylation_extraction">bismark_methylation_extraction</h3>
-<p><code>args</code>: <br><br></p>
+<p><code>args (default=null : string)</code>: A string of arguments in the form of <code>"--params1 --params2 ..."</code> to give to this specific process as additional argument to the tool being used.<br><br></p>
 </section>
 <section id="bismark_bam2nuc" class="level3">
 <h3 class="anchored" data-anchor-id="bismark_bam2nuc">bismark_bam2nuc</h3>
-<p><code>args</code>: <br><br></p>
+<p><code>args (default=null : string)</code>: A string of arguments in the form of <code>"--params1 --params2 ..."</code> to give to this specific process as additional argument to the tool being used.<br><br></p>
 <div class="d-flex justify-content-between mt-5">
 <p><a href="../../docs/usage/index.html" class="fw-bold" style="color: #6E3778; font-size: 20px;">← Usage</a></p>
 <p><a href="../../docs/about/index.html" class="fw-bold" style="color: #6E3778; font-size: 20px;">About →</a></p>

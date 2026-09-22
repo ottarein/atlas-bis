@@ -11,53 +11,54 @@ title: "<span style='color:#6E3778;'>References</span>"
 `cpus (default=null : integer)`: An amount of CPUS available and allowed to the pipeline to use.<br>
 `memory`: The amount of memory available and usable for the pipeline. The memory should be written in the form of `X.MB`,`X.GB`, `X.TB`, etc.. <br><br>
 `sub_samplesheet (default=null : string)`: A path to a file where each line should correspond to an accession number available from the metadata processed by the pipeline. Typically, this is used to filter samples out from larges studies <br><br>
-`init (default=true : boolean)` : A boolean that condition the execution of step from retrieving the metadata onwards. By default, `init=true` for the first run as we expect to first retrieve the metadata of our studies and explore the metadata to then plan out the analysis plan for each studies. It can be set to `false` afterwards or from the beginning in the case of self-curated data.<br><br>
-`skip_preprocess (default=false : boolean)` : <br><br>
-`bismark (default=true : boolean)`: <br><br>
-`preprocess_only (default=false : boolean)`: <br><br>
-`run_single_end (default=false : boolean)`: <br><br>
+`init (default=true : boolean)` : A boolean that condition the execution of step from retrieving the metadata onwards. By default, `init=true` for the first run as we expect to first retrieve the metadata of our studies and explore the metadata to then plan out the analysis plan for each studies. It can be set to `false` afterwards or from the beginning in the case of self-curated data. <br><br>
+`skip_preprocess (default=false : boolean)` : A boolean allowing to skip all preprocessing step to start with alignment as the first step. `PLACEHOLDER`<br><br> 
+<!-- add a new files that contains every fastq to align and process -->
+`bismark (default=true : boolean)`: Use Bismark Suite as the tools for alignment and post alignment processing, it is on by default.<br><br>
+`preprocess_only (default=false : boolean)`: Parameters to proceed apply only preprocessing step to the samples.<br><br>
+`run_single_end (default=false : boolean)`: Parameters to consider paired-end samples as if they were single ended and process them as such. For example, analysing sc-WGBS study would require this parameters.<br><br>
 :::
 ## Process paramaters
 
 ### metadata
 
-`path (default='' : string)`: <br><br>
+`path (default=null : string)`: Path to a metadata file (usually `.csv`). Typically after `Initialization`, i.e retrieving the metadata, if the metadata need some processing then it can be done externally and use the newly processed metadata as input using this paramater. <br><br>
 
 ### fastqc
 
-`args`: <br><br>
+`args (default=null : string)`: A string of arguments in the form of `"--params1 --params2 ..."` to give to this specific process as additional argument to the tool being used.<br><br>
 
 ### multiqc
 
-`args`: <br><br>
-`per_stage`: <br><br>
-`break_parent`: <br><br>
+`args (default=null : string)`: A string of arguments in the form of `"--params1 --params2 ..."` to give to this specific process as additional argument to the tool being used.<br><br>
+`per_stage (default=null : string)`: Allow to create per condition report using multiqc by referencing a column from the metadata in the samplesheet.<br><br>
+`break_parent (default=null : string)`: Allow to give up seperating the input accession from the samplesheet into different report. For example, in case of two accession number as input to sample sheet both being GSE (large study) then instead of creating one report per GSE it will instad consider every sample as one unique study.<br><br>
 
 ### trimgalore
 
-`args`: <br><br>
+`args (default=null : string)`: A string of arguments in the form of `"--params1 --params2 ..."` to give to this specific process as additional argument to the tool being used.<br><br>
 
 ### bismark_genome_preparation
 
-`args`: <br><br>
-`skip`: <br><br>
-`duplicate`: <br><br>
+`args (default=null : string)`: A string of arguments in the form of `"--params1 --params2 ..."` to give to this specific process as additional argument to the tool being used.<br><br>
+`skip (default=null : string)`: Allow to skip the genome preparation step and assume that it has already been done before.<br><br>
+`duplicate (default=null : string)`: Duplicate the genome folder with the alternative version to the output folder, i.e `outdir`.<br><br>
 
 ### bismark_alignment
 
-`args`: <br><br>
+`args (default=null : string)`: A string of arguments in the form of `"--params1 --params2 ..."` to give to this specific process as additional argument to the tool being used.<br><br>
 
 ### bismark_deduplication
 
-`args`: <br><br>
+`args (default=null : string)`: A string of arguments in the form of `"--params1 --params2 ..."` to give to this specific process as additional argument to the tool being used.<br><br>
 
 ### bismark_methylation_extraction
 
-`args`: <br><br>
+`args (default=null : string)`: A string of arguments in the form of `"--params1 --params2 ..."` to give to this specific process as additional argument to the tool being used.<br><br>
 
 ### bismark_bam2nuc
 
-`args`: <br><br>
+`args (default=null : string)`: A string of arguments in the form of `"--params1 --params2 ..."` to give to this specific process as additional argument to the tool being used.<br><br>
 
 ::: {.d-flex .justify-content-between .mt-5}
 [← Usage](../usage/index.qmd){.fw-bold style="color: #6E3778; font-size: 20px;"}
