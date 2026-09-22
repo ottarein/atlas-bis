@@ -2,7 +2,33 @@
 title: "<span style='color:#6E3778;'>Your First Launch of </span><span style='color:#008CA5;'>ATLAS</span><span style='color:#EBB400;'>²</span>"
 ---
 
-`PLACEHOLDER TESTING RUN`
+Now, let's do our first launch of ATLAS²
+
+## Parameters File
+
+First, you will need a parameter file `params.yml` to make your life easier. A parameter file is a `.yml` file containing any parameters with their value that you would want to give to the pipeline. It substitute to simply adding them one by one in the command line after Nextflow run command 
+```bash
+nextflow run main.nf -params-file params.yml
+``` 
+instead of 
+
+```bash
+nextflow run main.nf --params1 value1 --params2 value2 ..
+```
+
+Here is an example of parameters file to use for now
+
+```yaml
+outdir: './result'  
+workdir: './work' 
+samplesheet: "./samplesheet.csv"
+sub_samplesheet: null
+cpus: 4
+memory: 16.GB
+
+init: true
+preprocess_only: true
+```
 
 ::: {.d-flex .justify-content-between .mt-5}
 [← Get started](../get_started/index.qmd){.fw-bold style="color: #6E3778; font-size: 20px;"}

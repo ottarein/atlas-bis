@@ -2,6 +2,19 @@
 title: "<span style='color:#6E3778;'>References</span>"
 ---
 
+Here, you will find all the parameters available for the pipeline. You will need to differentiate `General` and `Process specific` arguments. <br><br>
+
+A `General` argument can be added directly in a newline inside your `params.yml` in the form of 
+
+```yaml
+params1: value1
+``` 
+A `Process specific` argument is in a hierarchical structure so it will be under a parent (here a process) name. Inside your `params.yml` you will need to structure it like this 
+```yaml
+tool1:
+  params1: value1
+```
+
 ## General parameters
 ::: {style="text-align: justify; font-size: 19px;"}
 `outdir (default='./result' : string)`: A path to a directory where the pipeline results will be stored, i.e copied into from the work directory of each process using the directives of the configuration files for exact localization <br><br>
