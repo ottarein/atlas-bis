@@ -1,0 +1,3 @@
+task_id	name	status	exit	attempt	realtime	%cpu	%mem	peak_rss	peak_vmem	cpus	memory	time	submit	duration	workdir	module	container	error_action
+1	METADATA (1)	COMPLETED	0	1	6.5s	359.0%	0.0%	104.7 MB	13 GB	4	12 GB	-	2026-09-22 10:29:31.641	9.5s	/tachyon/groups/gpeters/pfranck/project/dname_pipeline/test-files/work/be/60eacb680484d42ca82a77985f7f8c	-	-	-
+2	METADATA (2)	COMPLETED	0	1	4.7s	501.2%	0.0%	100.3 MB	13 GB	4	12 GB	-	2026-09-22 10:29:41.166	7.4s	/tachyon/groups/gpeters/pfranck/project/dname_pipeline/test-files/work/6f/a513903fd6234a93d9f54134634db9	-	-	-
